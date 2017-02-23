@@ -1,3 +1,24 @@
-<p>
-  member-list works!
-</p>
+<div class="row">
+  <div class="col-sm-12">
+    <button class="btn btn-primary btn-lg" (click)="add()">Add New Member</button>
+  </div>
+</div>
+<h1> List of Members</h1>
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+<tbody class="row" *ngFor="let member of members" >
+  <tr>
+    <td>{{member.id}}</td>
+    <td>{{member.name}}</td>
+    <td><button class="btn btn-warning btn-sm">Edit</button>
+    <button class="btn btn-danger btn-sm">Delete</button></td>
+  </tr>
+    
+</tbody>
+</table>

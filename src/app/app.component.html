@@ -1,3 +1,5 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid">
+  <h1>Member list</h1>
+  <app-member-list *ngIf="currentView == 'list'" [members]="member" (onAdd)="navigateTo('add')" ></app-member-list>
+  <app-add-member *ngIf="currentView == 'add'" (onAdded)="navigateTo('list')" (onCancel)="navigateTo('list')"></app-add-member>
+</div>

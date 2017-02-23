@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { MemberData } from './member-data';
 
 @Component({
   selector: 'app-root',
-  template: '<div class="container-fluid"> <h1>Members</h1> <app-member-list></app-member-list> </div>',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+ members = MemberData.BafMembers.slice(0);
+ currentView = 'list';
+
+ navigateTo(view: string) {
+   this.currentView = view;
+ }
 }
