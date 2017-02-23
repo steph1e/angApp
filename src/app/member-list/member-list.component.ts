@@ -8,6 +8,7 @@ import { MemberData} from '../member-data';
   styleUrls: ['./member-list.component.css']
 })
 export class MemberListComponent implements OnInit {
+  
 @Input() members:MemberData[];
 @Output() onAdd = new EventEmitter();
 
