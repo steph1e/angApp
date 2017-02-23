@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MemberData } from './member-data';
+import { EditMemberComponent } from './edit-member/edit-member.component'
 
 @Component({
   selector: 'app-root',
