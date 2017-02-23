@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-member',
@@ -6,11 +6,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./add-member.component.css']
 })
 export class AddMemberComponent implements OnInit {
-@Output() onAdded = new EventEmitter();
+@Input() memberId: number;
+@Output() onAdded = new EventEmitter<string>();
 @Output() onCancel = new EventEmitter();
+memberName: string;
 
 added(){
-  this.onAdded.emit(null)
+  this.onAdded.emit(this.memberName)
 }
 cancel(){
   this.onCancel.emit(null);
