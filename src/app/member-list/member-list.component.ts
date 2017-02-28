@@ -11,12 +11,13 @@ import { MemberManagementService } from '../member-management.service'
 export class MemberListComponent implements OnInit {
   
 members: MemberData[];
+memberService = new MemberManagementService();
  @Output () onAdd = new EventEmitter();
  @Output () onEdit = new EventEmitter<number>();
  @Output () onDelete = new EventEmitter<number>();
 
- constructor(private memberService : MemberManagementService){
-   this.members = memberService.getAllMembers();
+ constructor(){
+   this.members = this.memberService.getAllMembers();
  }
 
 add() {

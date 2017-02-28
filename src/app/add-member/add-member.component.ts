@@ -1,3 +1,4 @@
+import { MemberManagementService } from '../member-management.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -6,19 +7,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./add-member.component.css']
 })
 export class AddMemberComponent implements OnInit {
-@Input() memberId: number;
-@Output() onAdded = new EventEmitter<string>();
-@Output() onCancel = new EventEmitter();
+@Output() onClosed = new EventEmitter();
 memberName: string;
+  constructor(private memberService: MemberManagementService) {
 
-added(){
-  this.onAdded.emit(this.memberName)
-}
+   }
+   add(){
+     this.memberService.addMember({id: 0, name:this.memberName});
+     this.onClosed.emit(null);
+   }
 cancel(){
-  this.onCancel.emit(null);
+this.onClosed.emit(null);
 }
-  constructor() { }
-
   ngOnInit() {
   }
 

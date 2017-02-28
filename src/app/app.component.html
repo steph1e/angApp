@@ -4,18 +4,18 @@
  <div [ngSwitch]="currentView" >
 
    <app-member-list *ngSwitchDefault
-   (onAdd)="navigateTo('add')"
-   (onEdit)="memberId=$event; navigateTo('edit')"
-   (onDelete)="memberId=$event; navigateTo('delete')">
+    (onAdd)="navigateTo('add')"
+    (onEdit)="memberId=$event; navigateTo('edit')"
+    (onDelete)="memberId=$event; navigateTo('delete')">
    </app-member-list>
 
-   <app-add-member *ngSwitchCase"'add'">
-   </app-add-member>
+   <app-add-member *ngSwitchCase="'add'" (onClosed)="navigateTo('list')" > </app-add-member>
 
    <app-edit-member *ngSwitchCase="'edit'">
    </app-edit-member>
 
    <app-delete-member *ngSwitchCase="'delete'">
    </app-delete-member>
+
  </div>
 </div>

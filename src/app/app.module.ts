@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { MemberListComponent } from './member-list/member-list.component';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { EditMemberComponent } from './edit-member/edit-member.component';
+import { DeleteMemberComponent } from './delete-member/delete-member.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MemberListComponent,
     AddMemberComponent,
-    EditMemberComponent
+    EditMemberComponent,
+    DeleteMemberComponent
   ],
   imports: [
     BrowserModule,
