@@ -1,10 +1,21 @@
 <div class="container-fluid">
-  <h1>Member list</h1>
-  <app-member-list *ngIf="currentView == 'list'" [members]="members" (onAdd)="startAdd()" ></app-member-list>
-  <app-add-member *ngIf="currentView == 'add'" [memberId]="newMemberId"(onAdded)="memberAdded($event)" (onCancel)="navigateTo('list')"></app-add-member>
-  <app-edit-member *ngIf="currentView == 'edit'"
-[member] = "currentMember"
-(onSaved)="memberSaved($event)"
-(onCancel)="navigateTo('list')">
-  </app-edit-member>
+ <h1>Members List App</h1>
+
+ <div [ngSwitch]="currentView" >
+
+   <app-member-list *ngSwitchDefault
+   (onAdd)="navigateTo('add')"
+   (onEdit)="memberId=$event; navigateTo('edit')"
+   (onDelete)="memberId=$event; navigateTo('delete')">
+   </app-member-list>
+
+   <app-add-member *ngSwitchCase"'add'">
+   </app-add-member>
+
+   <app-edit-member *ngSwitchCase="'edit'">
+   </app-edit-member>
+
+   <app-delete-member *ngSwitchCase="'delete'">
+   </app-delete-member>
+ </div>
 </div>
