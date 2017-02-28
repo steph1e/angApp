@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MemberData } from './member-data';
 import { EditMemberComponent } from './edit-member/edit-member.component'
+import { MemberManagementService} from './member-management.service'
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import { EditMemberComponent } from './edit-member/edit-member.component'
 export class AppComponent {
  memberId: number;
  currentView = 'list';
-
+ 
  navigateTo(view: string){
    this.currentView = view;
  }

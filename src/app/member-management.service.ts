@@ -20,7 +20,7 @@ export class MemberManagementService {
         this._members.push(newMember);
     }
 
-    saveMember(site: MemberData){
+    saveMember(member: MemberData){
         let oldMember = this._members.filter(s => s.id == member.id)[0];
         if (oldMember) {
             oldMember.name = member.name;

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MemberData} from '../member-data';
+import { MemberManagementService } from '../member-management.service'
 
 
 @Component({
@@ -9,16 +10,31 @@ import { MemberData} from '../member-data';
 })
 export class MemberListComponent implements OnInit {
   
-@Input() members:MemberData[];
-@Output() onAdd = new EventEmitter();
+members: MemberData[];
+ @Output () onAdd = new EventEmitter();
+ @Output () onEdit = new EventEmitter<number>();
+ @Output () onDelete = new EventEmitter<number>();
 
-add(){
+ constructor(private memberService : MemberManagementService){
+   this.members = memberService.getAllMembers();
+ }
+
+add() {
   this.onAdd.emit(null);
 }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+edit(memberId: number){
+  this.onEdit.emit(memberId);
 }
+
+delete(memberId: number){
+  this.onDelete.emit(memberId);
+}
+ ngOnInit() {
+  }
+}
+
+
+
+ 
+
+
