@@ -9,17 +9,13 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./edit-member.component.css']
 })
 export class EditMemberComponent implements OnInit {
-  private _memberId: number;
+@Input () memberId: number;
  memberName: string;
 
-@Input() set memberId(id:number){
-  this._memberId = id;
-  this.memberName = this.memberService.getMemberById(id).name;
-}
  @Output() onClosed = new EventEmitter();
 
   constructor(private memberService: MemberManagementService) {
-   
+    this.memberName = this.memberService.getMemberById(this.memberId).name;
    }
 save(){
   this.memberService.saveMember({id: this.memberId, name: this.memberName});

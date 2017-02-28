@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12">
-    <button class="btn btn-primary btn-lg" (click)="add()">Add New Member</button>
+   <a class="btn btn-primary btn-lg" routerLink="/add">Add New Member</a>
   </div>
 </div>
 <h1> List of Members</h1>
@@ -14,11 +14,11 @@
     </tr>
   </thead>
 <tbody>
-  <tr class="row" *ngFor="let member of members">
+  <tr class="row" *ngFor="let member of members; let e=even; let f=first; let l=last" ywActionable="#6666ee" (onAction)="edit(member.id)" >
     <td>{{member.id}}</td>
     <td>{{member.name}}</td>
-    <td><button class="btn btn-warning btn-sm" (click)="edit(member.id)">Edit</button>
-    <button class="btn btn-danger btn-sm" (click)="delete(member.id)">Delete</button></td>
+    <td><a class="btn btn-warning btn-sm" [routerLink]="['/edit', member.id]">Edit</a>
+        <a class="btn btn-danger btn-sm" [routerLink]="['/delete', member.id]">Delete</a><td>
   </tr>
     
 </tbody>

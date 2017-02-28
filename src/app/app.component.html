@@ -1,7 +1,7 @@
 <div class="container-fluid">
  <h1>Members List App</h1>
 
- <div [ngSwitch]="currentView" >
+ <!--<div [ngSwitch]="currentView" >
 
    <app-member-list *ngSwitchDefault
     (onAdd)="navigateTo('add')"
@@ -17,5 +17,6 @@
    <app-delete-member *ngSwitchCase="'delete'">
    </app-delete-member>
 
- </div>
+ </div> -->
+ <router-outlet></router-outlet>
 </div>

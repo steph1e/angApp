@@ -1,3 +1,6 @@
+import { routingModule } from './app.routes';
+import { ActionableDirective } from './actionable.directives';
+import { MemberManagementService } from './member-management.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,14 +18,16 @@ import { DeleteMemberComponent } from './delete-member/delete-member.component';
     MemberListComponent,
     AddMemberComponent,
     EditMemberComponent,
-    DeleteMemberComponent
+    DeleteMemberComponent,
+    ActionableDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routingModule
   ],
-  providers: [],
+  providers: [MemberManagementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
