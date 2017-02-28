@@ -11,7 +11,7 @@
 
    <app-add-member *ngSwitchCase="'add'" (onClosed)="navigateTo('list')" > </app-add-member>
 
-   <app-edit-member *ngSwitchCase="'edit'">
+   <app-edit-member *ngSwitchCase="'edit'" [memberId]="memberId" (onClosed)="navigateTo('list')">
    </app-edit-member>
 
    <app-delete-member *ngSwitchCase="'delete'">

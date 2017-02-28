@@ -1,3 +1,4 @@
+import { MemberManagementService } from '../member-management.service';
 
 import { MemberData } from '../member-data';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
@@ -8,19 +9,26 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./edit-member.component.css']
 })
 export class EditMemberComponent implements OnInit {
-@Input() member:MemberData;
-@Output() onSaved = new EventEmitter<MemberData>();
-@Output() onCancel = new EventEmitter();
+  private _memberId: number;
+ memberName: string;
 
-saved(){
-  if (this.member.id){
-    this.onSaved.emit(this.member);
-  }
+@Input() set memberId(id:number){
+  this._memberId = id;
+  this.memberName = this.memberService.getMemberById(id).name;
 }
+ @Output() onClosed = new EventEmitter();
+
+  constructor(private memberService: MemberManagementService) {
+   
+   }
+save(){
+  this.memberService.saveMember({id: this.memberId, name: this.memberName});
+  this.onClosed.emit(null);
+}
+
 cancel(){
-  this.onCancel.emit(null);
+  this.onClosed.emit(null);
 }
-  constructor() { }
 
   ngOnInit() {
   }
