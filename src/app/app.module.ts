@@ -11,6 +11,7 @@ import { MemberListComponent } from './member-list/member-list.component';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { EditMemberComponent } from './edit-member/edit-member.component';
 import { DeleteMemberComponent } from './delete-member/delete-member.component';
+import { MemberLogComponent } from './member-log/member-log.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DeleteMemberComponent } from './delete-member/delete-member.component';
     AddMemberComponent,
     EditMemberComponent,
     DeleteMemberComponent,
-    ActionableDirective
+    ActionableDirective,
+    MemberLogComponent
   ],
   imports: [
     BrowserModule,

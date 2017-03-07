@@ -14,6 +14,10 @@ export class MemberData{
         {
             id: 3,
             name: 'Heinrich'
+        },
+        {
+            id: 4,
+            name: 'Charlie'
         }
     ]
 }

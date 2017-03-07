@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { MemberManagementService } from '../member-management.service';
 
 import { MemberData } from '../member-data';
@@ -14,12 +15,15 @@ export class EditMemberComponent implements OnInit {
 
  @Output() onClosed = new EventEmitter();
 
-  constructor(private memberService: MemberManagementService) {
+  constructor(private memberService: MemberManagementService, private route: ActivatedRoute, private router: Router) {
     this.memberName = this.memberService.getMemberById(this.memberId).name;
+   this.memberId = this.route.snapshot.params['id'];
+   
    }
 save(){
   this.memberService.saveMember({id: this.memberId, name: this.memberName});
-  this.onClosed.emit(null);
+ // this.onClosed.emit(null);
+ this.router.navigate(['/list']);
 }
 
 cancel(){
