@@ -1,4 +1,4 @@
-import { MemberLogApi } from '../member-log-api.services';
+
 import { Router } from '@angular/router';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MemberData} from '../member-data';
@@ -13,15 +13,14 @@ import { MemberManagementService } from '../member-management.service'
 export class MemberListComponent implements OnInit {
   
 members: MemberData[];
-loading = false;
-errorMessage = null;
+
 
 
  @Output () onAdd = new EventEmitter();
  @Output () onEdit = new EventEmitter<number>();
  @Output () onDelete = new EventEmitter<number>();
 
- constructor(private memberService: MemberManagementService, private router: Router, private api: MemberLogApi ){
+ constructor(private memberService: MemberManagementService, private router: Router,  ){
    this.members = memberService.getAllMembers();
  }
 
@@ -39,22 +38,8 @@ delete(memberId: number){
  ngOnInit() {
 }
 
-refreshMembers(){
-  this.loading = true;
-  this.errorMessage = null;
-  this.members = [];
 
-  this.api.getMembers().then(data => {
-    this.members = data;
-    this.loading = false;
-  }).catch(errMsg =>{
-    this.errorMessage = errMsg;
-    this.loading = false;
-  });
 }
-}
-
-
 
  
 
